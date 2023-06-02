@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from jinja2 import Environment, FileSystemLoader
+import mysql.connector
 
 app = Flask(__name__)
 
@@ -68,9 +69,40 @@ def index():
     # Convert output to HTML table
     outputkab_html = outputkab.to_html(index=False)
 
+    # Connect to MySQL
+    cnx = mysql.connector.connect(
+        user="panelteam01",
+        password="pjLm.j)&5(39'`f8",
+        host="34.101.58.55",
+        database="panelteam01"
+    )
+
+    # Create table if not exists
+    cursor = cnx.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS clustering_results (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            KabKota VARCHAR(255),
+            Jenis_Ikan VARCHAR(255),
+            Status VARCHAR(255)
+        )
+    """)
+
+    # Insert data into table
+    for _, row in outputkab.iterrows():
+        cursor.execute("""
+            INSERT INTO clustering_results (KabKota, Jenis_Ikan, Status)
+            VALUES (%s, %s, %s)
+        """, (row['KabKota'], row['Jenis_Ikan'], row['Status']))
+    
+    # Commit the changes
+    cnx.commit()
+
+    # Close the cursor and connection
+    cursor.close()
+    cnx.close()
+
     return render_template('index.html', outputkab=outputkab)
     
-    # return render_template('index2.html')
-
 if __name__ == '__main__':
     app.run(debug=True)
