@@ -137,48 +137,61 @@
                     <button type="submit" class="btn btn-primary ml-2">Cari</button>
                 </div>
             </form>
+            <div class="table-container">
               <table class="table table-striped text-center mt-3">
+
+                <style>
+                  .table-container {
+                    max-height: 700px; /* Set the desired height for the scrollable area */
+                    overflow-y: scroll; /* Enable vertical scroll */
+                  }
+                  
+                  .table.table-striped.text-center {
+                    width: 100%;
+                    border-collapse: collapse;
+                  }
+                  
+                  .table.table-striped.text-center th,
+                  .table.table-striped.text-center td {
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                  }
+                  
+                  .table.table-striped.text-center th.bg-white {
+                    background-color: #fff;
+                  }
+                  
+                  .table.table-striped.text-center th.rounded-left-xl {
+                    border-radius: 5px 0 0 5px;
+                  }
+                  
+                  /* Add additional CSS styling as needed */
+                </style>
+
+                
                 <thead>
                   <tr>
-                    <th
-                      class="font-weight-bold rounded-left-xl p-5"
-                      style="background-color: #292f3f; color: #fdff8a"
-                    >
+                    <th class="font-weight-bold rounded-left-xl p-5" style="background-color: #292f3f; color: #fdff8a">
                       No
                     </th>
-                    <th
-                      class="font-weight-bold p-5"
-                      style="background-color: #292f3f; color: #fdff8a"
-                    >
+                    <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
                       Nama Ikan
                     </th>
-                    <!-- <th
-                      class="font-weight-bold p-5"
-                      style="background-color: #292f3f; color: #fdff8a"
-                    >
+                    <!-- <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
                       Harga
                     </th> -->
-                    <!-- <th
-                      class="font-weight-bold p-5"
-                      style="background-color: #292f3f; color: #fdff8a"
-                    >
+                    <!-- <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
                       Kebutuhan Pasar
                     </th> -->
-                    <th
-                      class="font-weight-bold p-5"
-                      style="background-color: #292f3f; color: #fdff8a"
-                    >
+                    <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
                       Status
                     </th>
-                    <th
-                      class="font-weight-bold rounded-right-xl p-5"
-                      style="background-color: #292f3f; color: #fdff8a"
-                    >
+                    <th class="font-weight-bold rounded-right-xl p-5" style="background-color: #292f3f; color: #fdff8a">
                       Populer di Kota
                     </th>
                   </tr>
                 </thead>
-                <body>
+                <tbody>
                   {% for _, row in outputkab.iterrows() %}
                   <tr>
                     <td class="bg-white rounded-left-xl p-5">
@@ -191,6 +204,9 @@
                   {% endfor %}
                 </tbody>
               </table>
+            </div>
+                </div>
+
             </div>
           </div>
         </div>
