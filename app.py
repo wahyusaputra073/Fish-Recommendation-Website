@@ -63,7 +63,7 @@ def index():
     outputkab = outputkab[['KabKota', 'Jenis_Ikan', 'Status']].copy()
     
     # Limit the output to a maximum of 10 rows
-    outputkab = outputkab.head(10)
+    outputkab = outputkab.head(100)
     
     # Convert output to HTML table
     outputkab_html = outputkab.to_html(index=False)
