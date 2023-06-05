@@ -1,16 +1,16 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from jinja2 import Environment, FileSystemLoader
-import mysql.connector
+from sklearn.cluster import DBSCAN, KMeans
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    # if request.method == 'POST':
+@app.route('/index', methods=['GET', 'POST'])
+def index():    
 
     # Load Data
     data_cluster = pd.read_csv("https://storage.googleapis.com/tim_panel1/DataCobaNew.csv")
@@ -59,7 +59,6 @@ def index():
     else:
         outputkab = ikan.copy()
 
-
     # Take one Region
     outputkab = outputkab[['KabKota', 'Jenis_Ikan', 'Status']].copy()
     
@@ -69,40 +68,83 @@ def index():
     # Convert output to HTML table
     outputkab_html = outputkab.to_html(index=False)
 
-    # Connect to MySQL
-    cnx = mysql.connector.connect(
-        user="panelteam01",
-        password="pjLm.j)&5(39'`f8",
-        host="34.101.58.55",
-        database="panelteam01"
-    )
-
-    # Create table if not exists
-    cursor = cnx.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS clustering_results (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            KabKota VARCHAR(255),
-            Jenis_Ikan VARCHAR(255),
-            Status VARCHAR(255)
-        )
-    """)
-
-    # Insert data into table
-    for _, row in outputkab.iterrows():
-        cursor.execute("""
-            INSERT INTO clustering_results (KabKota, Jenis_Ikan, Status)
-            VALUES (%s, %s, %s)
-        """, (row['KabKota'], row['Jenis_Ikan'], row['Status']))
-    
-    # Commit the changes
-    cnx.commit()
-
-    # Close the cursor and connection
-    cursor.close()
-    cnx.close()
-
     return render_template('index.html', outputkab=outputkab)
+
+
+
+@app.route('/index2', methods=['GET', 'POST'])
+def result():
+    # Melakukan proses clustering
+    df = pd.read_csv("https://storage.googleapis.com/tim_panel1/DataCobaNew.csv")
+    df = df[['Volume_Produksi', 'Konsumsi']]
+    data = StandardScaler().fit_transform(df.astype(float))
+
+    # Clustering menggunakan DBSCAN
+    db = DBSCAN(eps=0.18, min_samples=2).fit(data)
+    labels_dbscan = db.labels_
+
+    # Clustering menggunakan K-means
+    kmeans = KMeans(n_clusters=5, random_state=0)
+    labels_kmeans = kmeans.fit_predict(data)
+
+    # Menambahkan kolom label ke DataFrame
+    df['Cluster_DBSCAN'] = labels_dbscan
+    df['Cluster_KMeans'] = labels_kmeans
+
+    # Menyimpan hasil clustering
+    labels = labels_kmeans
+    # Load Data
+    ikan = pd.read_csv("https://storage.googleapis.com/tim_panel1/DataCobaNew.csv")
+    ikan['Cluster'] = labels
+
+    # Data Frame Manipulation
+    condition = [
+        (ikan['Cluster'] == 0),
+        (ikan['Cluster'] == 1),
+        (ikan['Cluster'] == 2),
+        (ikan['Cluster'] == 3),
+        (ikan['Cluster'] == 4)
+    ]
+    values = [
+        'Boleh untuk ditangkap',
+        'Sehat untuk ditangkap',
+        'Jumlah terbatas',
+        'Overfishing',
+        'Aman'
+    ]
+    ikan['Status'] = np.select(condition, values)
+
+    # Sort custom
+    urutan = [
+        (ikan['Status'] == 'Overfishing'),
+        (ikan['Status'] == 'Sehat untuk ditangkap'),
+        (ikan['Status'] == 'Overfishing'),
+        (ikan['Status'] == 'Jumlah terbatas')
+    ]
+    values = [1, 2, 3, 4]
+    ikan['temp'] = np.select(urutan, values)
+    ikan = ikan.sort_values(by=['temp'])
+
+    # Filter by search query
+    search_query = request.args.get('search')
+    kota_query = request.args.get('kota')
     
+    if search_query:
+        outputkab = ikan[
+            ikan['Jenis_Ikan'].str.contains(search_query, case=False) |
+            ikan['KabKota'].str.contains(search_query, case=False)
+        ]
+    elif kota_query:
+        outputkab = ikan[ikan['KabKota'].str.contains(kota_query, case=False)]
+    else:
+        outputkab = ikan.copy()
+
+        outputkab = outputkab[['KabKota', 'Jenis_Ikan', 'Status']].copy()   
+    
+    # Display
+    outputkab = outputkab.head(10)
+
+    return render_template('index2.html', outputkab=outputkab)
+
 if __name__ == '__main__':
     app.run(debug=True)
