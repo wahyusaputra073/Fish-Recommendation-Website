@@ -55,7 +55,7 @@
                 <a href="" class="nav-link">Profil Tim</a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">Temukan Ikan</a>
+                <a href="" class="nav-link">Temukan ikan</a>
               </li>
             </ul>
           </div>
@@ -212,12 +212,105 @@
         </div>
       </section>
 
+      <br>
+      <br>
+      <br>
+
+      <section class="table-ikan">
+        <div class="container">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up">
+              <h3 class="text-center my-3">Overfishing</h3>
+                           
+            </form>
+            <div class="table-container">
+              <table class="table table-striped text-center mt-3">
+
+                <style>
+                  .table-container {
+                    max-height: 700px; /* Set the desired height for the scrollable area */
+                    overflow-y: scroll; /* Enable vertical scroll */
+                  }
+                  
+                  .table.table-striped.text-center {
+                    width: 100%;
+                    border-collapse: collapse;
+                  }
+                  
+                  .table.table-striped.text-center th,
+                  .table.table-striped.text-center td {
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                  }
+                  
+                  .table.table-striped.text-center th.bg-white {
+                    background-color: #fff;
+                  }
+                  
+                  .table.table-striped.text-center th.rounded-left-xl {
+                    border-radius: 5px 0 0 5px;
+                  }
+                  
+                  /* Add additional CSS styling as needed */
+                </style>
+
+                
+                <thead>
+                  <tr>
+                    <th class="font-weight-bold rounded-left-xl p-5" style="background-color: #292f3f; color: #fdff8a">
+                      No
+                    </th>
+                    <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Nama Ikan
+                    </th>
+                    <!-- <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Harga
+                    </th> -->
+                    <!-- <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Kebutuhan Pasar
+                    </th> -->
+                    <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Status
+                    </th>
+                    <th class="font-weight-bold rounded-right-xl p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Populer di Kota
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for _, row in outputkab2.iterrows() %}
+                  <tr>
+                    <td class="bg-white rounded-left-xl p-5">
+                      {{ loop.index }}
+                    </td>
+                    <td class="bg-white p-5">{{ row['Jenis_Ikan']|safe }}</td>
+                    <td class="bg-white p-5">{{ row['Status']|safe }}</td>
+                    <td class="bg-white p-5">{{ row['KabKota']|safe }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <br>
+      <br>  
+
       <section class="table-ikan">
         <div class="container">
           <div class="row">
             <div class="col-12" data-aos="fade-up">
               <h5>Yuk bantu kami isi survei dibawah ini</h5>
             </div>
+
+            <br>
+            <br>
+
           </div>
           <div class="row">
             <div
