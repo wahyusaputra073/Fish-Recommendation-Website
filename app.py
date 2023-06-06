@@ -10,7 +10,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
-def index():    
+def index():
+    # if request.method == 'POST':
 
     # Load Data
     data_cluster = pd.read_csv("https://storage.googleapis.com/tim_panel1/DataCobaNew.csv")
@@ -59,21 +60,17 @@ def index():
     else:
         outputkab = ikan.copy()
 
+
     # Take one Region
     outputkab = outputkab[['KabKota', 'Jenis_Ikan', 'Status']].copy()
     
     # Limit the output to a maximum of 10 rows
-    outputkab = outputkab.head(100)
+    outputkab = outputkab.head(100)    
     
-    # Convert output to HTML table
-    outputkab_html = outputkab.to_html(index=False)
-
-    return render_template('index.html', outputkab=outputkab)
+    
+#     =================================================================================================
 
 
-
-@app.route('/index2', methods=['GET', 'POST'])
-def result():
     # Melakukan proses clustering
     df = pd.read_csv("https://storage.googleapis.com/tim_panel1/DataCobaNew.csv")
     df = df[['Volume_Produksi', 'Konsumsi']]
@@ -130,21 +127,21 @@ def result():
     kota_query = request.args.get('kota')
     
     if search_query:
-        outputkab = ikan[
+        outputkab2 = ikan[
             ikan['Jenis_Ikan'].str.contains(search_query, case=False) |
             ikan['KabKota'].str.contains(search_query, case=False)
         ]
     elif kota_query:
-        outputkab = ikan[ikan['KabKota'].str.contains(kota_query, case=False)]
+        outputkab2 = ikan[ikan['KabKota'].str.contains(kota_query, case=False)]
     else:
-        outputkab = ikan.copy()
+        outputkab2 = ikan.copy()
 
-        outputkab = outputkab[['KabKota', 'Jenis_Ikan', 'Status']].copy()   
+        outputkab2 = outputkab[['KabKota', 'Jenis_Ikan', 'Status']].copy()   
     
     # Display
-    outputkab = outputkab.head(10)
+    outputkab2 = outputkab2.head(10)
 
-    return render_template('index2.html', outputkab=outputkab)
+    return render_template('index.html', outputkab=outputkab, outputkab2=outputkab2)
 
 if __name__ == '__main__':
     app.run(debug=True)
