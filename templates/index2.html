@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Panel</title>
+    <link
+      rel="shortcut icon"
+      href="{{url_for('static', filename='img/logo-panel.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navbar Done -->
+    <nav class="navbar navbar-expand-lg custom-navbar" data-aos="fade-down">
+      <div class="container mt-1">
+        <div class="navbar-left">
+          <a href="index2.html" class="navbar-brand">PANEL</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="navbar-right mt-1">
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">Profil Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">Temukan</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--  -->
+
+    <div class="page-content page-home">
+      <!-- Carousel sisa edit gambar -->
+      <section class="carousel">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12" data-aos="zoom-in">
+              <div
+                id="ikanCarousel"
+                class="carousel slide"
+                data-ride="carousel"
+              >
+                <ol class="carousel-indicators">
+                  <li
+                    class="active"
+                    data-target="#ikanCarousel"
+                    data-slide-to="0"
+                  ></li>
+                  <li data-target="#ikanCarousel" data-slide-to="1"></li>
+                  <li data-target="#ikanCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="{{url_for('static', filename='img/banner1.png') }}"
+                      alt="Carousel Image"
+                      class="d-block w-100"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="{{url_for('static', filename='/img/banner2.png') }}"
+                      alt="Carousel Image"
+                      class="d-block w-100"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="{{url_for('static', filename='/img/banner3.png') }}"
+                      alt="Carousel Image"
+                      class="d-block w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Carousel sisa edit gambar -->
+
+      <section class="table-ikan">
+        <div class="container">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up">
+              <h3 class="text-center my-3">Overfishing</h3>
+              <p class="text-center my-3">
+                Ayo semua agar kita mencegah overfishing di negeri kita ini<br />
+                
+                <br />
+              </p>
+              <form class="form-inline d-flex justify-content-center my-3 mt-4">
+                <div class="form-group">
+                    <input 
+                        type="text" name="search" class="form-control rounded-lg pr-4 pl-4 py-2 bg-filter-icon"
+                        style="background-size: 15px;
+                        background-repeat: no-repeat;
+                        appearance: none;
+                        background-position: right 10% bottom 50%;
+                        width: 1200px;"
+                        placeholder="Cari Ikan....">                        
+                </div>
+
+                <select name="kota">
+                    <option value=''>Kab/kota</option>
+                    <option value='ACEH BARAT'>ACEH BARAT</option>
+                    <option value='ACEH BARAT DAYA'>ACEH BARAT DAYA</option>
+                    <option value='ACEH BESAR'>ACEH BESAR</option>
+                    <option value='ACEH JAYA'>ACEH JAYA</option>
+                    <option value='ACEH SELATAN'>ACEH SELATAN</option>
+                    <option value='ACEH SINGKIL'>ACEH SINGKIL</option>
+                    <option value='ACEH TAMIANG'>ACEH TAMIANG</option>
+                    <option value='ACEH TENGAH'>ACEH TENGAH</option>
+                    <option value='ACEH TENGGARA'>ACEH TENGGARA</option>
+                    <option value='ACEH TIMUR'>ACEH TIMUR</option>
+                    <option value='ACEH UTARA'>ACEH UTARA</option>
+                    <option value='BENER MERIAH'>BENER MERIAH</option>
+                    <option value='BIREUEN'>BIREUEN</option>
+                    <option value='GAYO LUES'>GAYO LUES</option>
+                    <option value='KOTA BANDA ACEH'>KOTA BANDA ACEH</option>
+                    <option value='KOTA LANGSA'>KOTA LANGSA</option>
+                    <option value='KOTA LHOKSEUMAWE'>KOTA LHOKSEUMAWE</option>
+                    <option value='KOTA SABANG'>KOTA SABANG</option>
+                    <option value='KOTA SUBULUSSALAM'>KOTA SUBULUSSALAM</option>
+                    <option value='NAGAN RAYA'>NAGAN RAYA</option>
+                    <option value='PIDIE'>PIDIE</option>
+                    <option value='PIDIE JAYA'>PIDIE JAYA</option>
+                    <option value='SIMEULUE'>SIMEULUE</option>
+                    <option value='BADUNG'>BADUNG</option>
+                    <option value='BANGLI'>BANGLI</option>
+                    <option value='BULELENG'>BULELENG</option>
+                    <option value='GIANYAR'>GIANYAR</option>
+                    <option value='JEMBRANA'>JEMBRANA</option>
+                    <option value='KARANGASEM'>KARANGASEM</option>
+                    <option value='KLUNGKUNG'>KLUNGKUNG</option>
+                    <option value='KOTA DENPASAR'>KOTA DENPASAR</option>
+                    <option value='TABANAN'>TABANAN</option>
+                    <option value='KOTA CILEGON'>KOTA CILEGON</option>
+                    <option value='KOTA SERANG'>KOTA SERANG</option>
+                    <option value='KOTA TANGERANG'>KOTA TANGERANG</option>
+                    <option value='KOTA TANGERANG SELATAN'>KOTA TANGERANG SELATAN</option>
+                    <option value='LEBAK'>LEBAK</option>
+                    <option value='PANDEGLANG'>PANDEGLANG</option>
+                    <option value='SERANG'>SERANG</option>
+                    <option value='TANGERANG'>TANGERANG</option>
+                    <option value='BENGKULU SELATAN'>BENGKULU SELATAN</option>
+                    <option value='BENGKULU TENGAH'>BENGKULU TENGAH</option>
+                    <option value='BENGKULU UTARA'>BENGKULU UTARA</option>
+                    <option value='KAUR'>KAUR</option>
+                    <option value='KEPAHIANG'>KEPAHIANG</option>
+                    <option value='KOTA BENGKULU'>KOTA BENGKULU</option>
+                    <option value='LEBONG'>LEBONG</option>
+                    <option value='REJANG LEBONG'>REJANG LEBONG</option>
+                    <option value='SELUMA'>SELUMA</option>
+                    <option value='BANTUL'>BANTUL</option>
+                    <option value='GUNUNG KIDUL'>GUNUNG KIDUL</option>
+                    <option value='KOTA YOGYAKARTA'>KOTA YOGYAKARTA</option>
+                    <option value='KULON PROGO'>KULON PROGO</option>
+                    <option value='SLEMAN'>SLEMAN</option>
+                    <option value='BOALEMO'>BOALEMO</option>
+                    <option value='BONE BOLANGO'>BONE BOLANGO</option>
+                    <option value='GORONTALO'>GORONTALO</option>
+                    <option value='GORONTALO UTARA'>GORONTALO UTARA</option>
+                    <option value='KOTA GORONTALO'>KOTA GORONTALO</option>
+                    <option value='BUNGO'>BUNGO</option>
+                    <option value='KERINCI'>KERINCI</option>
+                    <option value='KOTA JAMBI'>KOTA JAMBI</option>
+                    <option value='KOTA SUNGAI PENUH'>KOTA SUNGAI PENUH</option>
+                    <option value='MERANGIN'>MERANGIN</option>
+                    <option value='MUARO JAMBI'>MUARO JAMBI</option>
+                    <option value='SAROLANGUN'>SAROLANGUN</option>
+                    <option value='TANJUNG JABUNG BARAT'>TANJUNG JABUNG BARAT</option>
+                    <option value='TANJUNG JABUNG TIMUR'>TANJUNG JABUNG TIMUR</option>
+                    <option value='TEBO'>TEBO</option>
+                    <option value='BANDUNG'>BANDUNG</option>
+                    <option value='BANDUNG BARAT'>BANDUNG BARAT</option>
+                    <option value='BEKASI'>BEKASI</option>
+                    <option value='BOGOR'>BOGOR</option>
+                    <option value='CIAMIS'>CIAMIS</option>
+                    <option value='CIANJUR'>CIANJUR</option>
+                    <option value='CIREBON'>CIREBON</option>
+                    <option value='GARUT'>GARUT</option>
+                    <option value='INDRAMAYU'>INDRAMAYU</option>
+                    <option value='KARAWANG'>KARAWANG</option>
+                    <option value='KOTA BANDUNG'>KOTA BANDUNG</option>
+                    <option value='KOTA BANJAR'>KOTA BANJAR</option>
+                    <option value='KOTA BEKASI'>KOTA BEKASI</option>
+                    <option value='KOTA BOGOR'>KOTA BOGOR</option>
+                    <option value='KOTA CIMAHI'>KOTA CIMAHI</option>
+                    <option value='KOTA CIREBON'>KOTA CIREBON</option>
+                    <option value='KOTA DEPOK'>KOTA DEPOK</option>
+                    <option value='KOTA SUKABUMI'>KOTA SUKABUMI</option>
+                    <option value='KOTA TASIKMALAYA'>KOTA TASIKMALAYA</option>
+                    <option value='KUNINGAN'>KUNINGAN</option>
+                    <option value='MAJALENGKA'>MAJALENGKA</option>
+                    <option value='PANGANDARAN'>PANGANDARAN</option>
+                    <option value='PURWAKARTA'>PURWAKARTA</option>
+                    <option value='SUBANG'>SUBANG</option>
+                    <option value='SUKABUMI'>SUKABUMI</option>
+                    <option value='SUMEDANG'>SUMEDANG</option>
+                    <option value='TASIKMALAYA'>TASIKMALAYA</option>
+                    <option value='BANJARNEGARA'>BANJARNEGARA</option>
+                    <option value='BANYUMAS'>BANYUMAS</option>
+                    <option value='BATANG'>BATANG</option>
+                    <option value='BLORA'>BLORA</option>
+                    <option value='BOYOLALI'>BOYOLALI</option>
+                    <option value='BREBES'>BREBES</option>
+                    <option value='CILACAP'>CILACAP</option>
+                    <option value='DEMAK'>DEMAK</option>
+                    <option value='GROBOGAN'>GROBOGAN</option>
+                    <option value='JEPARA'>JEPARA</option>
+                    <option value='KARANGANYAR'>KARANGANYAR</option>
+                    <option value='KEBUMEN'>KEBUMEN</option>
+                    <option value='KENDAL'>KENDAL</option>
+                    <option value='KLATEN'>KLATEN</option>
+                    <option value='KOTA MAGELANG'>KOTA MAGELANG</option>
+                    <option value='KOTA PEKALONGAN'>KOTA PEKALONGAN</option>
+                    <option value='KOTA SALATIGA'>KOTA SALATIGA</option>
+                    <option value='KOTA SEMARANG'>KOTA SEMARANG</option>
+                    <option value='KOTA SURAKARTA'>KOTA SURAKARTA</option>
+                    <option value='KOTA TEGAL'>KOTA TEGAL</option>
+                    <option value='KUDUS'>KUDUS</option>
+                    <option value='MAGELANG'>MAGELANG</option>
+                    <option value='PATI'>PATI</option>
+                    <option value='PEKALONGAN'>PEKALONGAN</option>
+                    <option value='PEMALANG'>PEMALANG</option>
+                    <option value='PURBALINGGA'>PURBALINGGA</option>
+                    <option value='PURWOREJO'>PURWOREJO</option>
+                    <option value='REMBANG'>REMBANG</option>
+                    <option value='SEMARANG'>SEMARANG</option>
+                    <option value='SRAGEN'>SRAGEN</option>
+                    <option value='SUKOHARJO'>SUKOHARJO</option>
+                    <option value='TEGAL'>TEGAL</option>
+                    <option value='TEMANGGUNG'>TEMANGGUNG</option>
+                    <option value='WONOGIRI'>WONOGIRI</option>
+                    <option value='WONOSOBO'>WONOSOBO</option>
+                    <option value='BANGKALAN'>BANGKALAN</option>
+                    <option value='BANYUWANGI'>BANYUWANGI</option>
+                    <option value='BLITAR'>BLITAR</option>
+                    <option value='BOJONEGORO'>BOJONEGORO</option>
+                    <option value='BONDOWOSO'>BONDOWOSO</option>
+                    <option value='GRESIK'>GRESIK</option>
+                    <option value='JEMBER'>JEMBER</option>
+                    <option value='JOMBANG'>JOMBANG</option>
+                    <option value='KEDIRI'>KEDIRI</option>
+                    <option value='KOTA BATU'>KOTA BATU</option>
+                    <option value='KOTA BLITAR'>KOTA BLITAR</option>
+                    <option value='KOTA KEDIRI'>KOTA KEDIRI</option>
+                    <option value='KOTA MADIUN'>KOTA MADIUN</option>
+                    <option value='KOTA MALANG'>KOTA MALANG</option>
+                    <option value='KOTA MOJOKERTO'>KOTA MOJOKERTO</option>
+                    <option value='KOTA PASURUAN'>KOTA PASURUAN</option>
+                    <option value='KOTA PROBOLINGGO'>KOTA PROBOLINGGO</option>
+                    <option value='KOTA SURABAYA'>KOTA SURABAYA</option>
+                    <option value='LAMONGAN'>LAMONGAN</option>
+                    <option value='LUMAJANG'>LUMAJANG</option>
+                    <option value='MADIUN'>MADIUN</option>
+                    <option value='MAGETAN'>MAGETAN</option>
+                    <option value='MALANG'>MALANG</option>
+                    <option value='MOJOKERTO'>MOJOKERTO</option>
+                    <option value='NGANJUK'>NGANJUK</option>
+                    <option value='NGAWI'>NGAWI</option>
+                    <option value='PACITAN'>PACITAN</option>
+                    <option value='PAMEKASAN'>PAMEKASAN</option>
+                    <option value='PASURUAN'>PASURUAN</option>
+                    <option value='PONOROGO'>PONOROGO</option>
+                    <option value='PROBOLINGGO'>PROBOLINGGO</option>
+                    <option value='SAMPANG'>SAMPANG</option>
+                    <option value='SIDOARJO'>SIDOARJO</option>
+                    <option value='SITUBONDO'>SITUBONDO</option>
+                    <option value='SUMENEP'>SUMENEP</option>
+                    <option value='TRENGGALEK'>TRENGGALEK</option>
+                    <option value='TUBAN'>TUBAN</option>
+                    <option value='TULUNGAGUNG'>TULUNGAGUNG</option>
+                    <option value='BENGKAYANG'>BENGKAYANG</option>
+                    <option value='KAPUAS HULU'>KAPUAS HULU</option>
+                    <option value='KAYONG UTARA'>KAYONG UTARA</option>
+                    <option value='KETAPANG'>KETAPANG</option>
+                    <option value='KOTA PONTIANAK'>KOTA PONTIANAK</option>
+                    <option value='KOTA SINGKAWANG'>KOTA SINGKAWANG</option>
+                    <option value='KUBU RAYA'>KUBU RAYA</option>
+                    <option value='LANDAK'>LANDAK</option>
+                    <option value='MELAWI'>MELAWI</option>
+                    <option value='MEMPAWAH'>MEMPAWAH</option>
+                    <option value='SAMBAS'>SAMBAS</option>
+                    <option value='SANGGAU'>SANGGAU</option>
+                    <option value='SEKADAU'>SEKADAU</option>
+                    <option value='SINTANG'>SINTANG</option>
+                    <option value='BALANGAN'>BALANGAN</option>
+                    <option value='BANJAR'>BANJAR</option>
+                    <option value='BARITO KUALA'>BARITO KUALA</option>
+                    <option value='HULU SUNGAI SELATAN'>HULU SUNGAI SELATAN</option>
+                    <option value='HULU SUNGAI TENGAH'>HULU SUNGAI TENGAH</option>
+                    <option value='HULU SUNGAI UTARA'>HULU SUNGAI UTARA</option>
+                    <option value='KOTA BANJARMASIN'>KOTA BANJARMASIN</option>
+                    <option value='TABALONG'>TABALONG</option>
+                    <option value='TANAH BUMBU'>TANAH BUMBU</option>
+                    <option value='TANAH LAUT'>TANAH LAUT</option>
+                    <option value='TAPIN'>TAPIN</option>
+                    <option value='BARITO SELATAN'>BARITO SELATAN</option>
+                    <option value='BARITO TIMUR'>BARITO TIMUR</option>
+                    <option value='BARITO UTARA'>BARITO UTARA</option>
+                    <option value='GUNUNG MAS'>GUNUNG MAS</option>
+                    <option value='KAPUAS'>KAPUAS</option>
+                    <option value='KATINGAN'>KATINGAN</option>
+                    <option value='KOTAWARINGIN BARAT'>KOTAWARINGIN BARAT</option>
+                    <option value='KOTAWARINGIN TIMUR'>KOTAWARINGIN TIMUR</option>
+                    <option value='LAMANDAU'>LAMANDAU</option>
+                    <option value='MURUNG RAYA'>MURUNG RAYA</option>
+                    <option value='PULANG PISAU'>PULANG PISAU</option>
+                    <option value='SERUYAN'>SERUYAN</option>
+                    <option value='SUKAMARA'>SUKAMARA</option>
+                    <option value='BERAU'>BERAU</option>
+                    <option value='KOTA BALIKPAPAN'>KOTA BALIKPAPAN</option>
+                    <option value='KOTA BONTANG'>KOTA BONTANG</option>
+                    <option value='KOTA SAMARINDA'>KOTA SAMARINDA</option>
+                    <option value='KUTAI BARAT'>KUTAI BARAT</option>
+                    <option value='KUTAI KARTANEGARA'>KUTAI KARTANEGARA</option>
+                    <option value='KUTAI TIMUR'>KUTAI TIMUR</option>
+                    <option value='MAHAKAM ULU'>MAHAKAM ULU</option>
+                    <option value='PASER'>PASER</option>
+                    <option value='PENAJAM PASER UTARA'>PENAJAM PASER UTARA</option>
+                    <option value='BULUNGAN'>BULUNGAN</option>
+                    <option value='KOTA TARAKAN'>KOTA TARAKAN</option>
+                    <option value='MALINAU'>MALINAU</option>
+                    <option value='NUNUKAN'>NUNUKAN</option>
+                    <option value='TANA TIDUNG'>TANA TIDUNG</option>
+                    <option value='BANGKA'>BANGKA</option>
+                    <option value='BANGKA BARAT'>BANGKA BARAT</option>
+                    <option value='BANGKA SELATAN'>BANGKA SELATAN</option>
+                    <option value='BANGKA TENGAH'>BANGKA TENGAH</option>
+                    <option value='BELITUNG'>BELITUNG</option>
+                    <option value='BELITUNG TIMUR'>BELITUNG TIMUR</option>
+                    <option value='KOTA PANGKAL PINANG'>KOTA PANGKAL PINANG</option>
+                    <option value='BINTAN'>BINTAN</option>
+                    <option value='KARIMUN'>KARIMUN</option>
+                    <option value='KEPULAUAN ANAMBAS'>KEPULAUAN ANAMBAS</option>
+                    <option value='KOTA BATAM'>KOTA BATAM</option>
+                    <option value='KOTA TANJUNG PINANG'>KOTA TANJUNG PINANG</option>
+                    <option value='LINGGA'>LINGGA</option>
+                    <option value='NATUNA'>NATUNA</option>
+                    <option value='KOTA BANDAR LAMPUNG'>KOTA BANDAR LAMPUNG</option>
+                    <option value='KOTA METRO'>KOTA METRO</option>
+                    <option value='LAMPUNG BARAT'>LAMPUNG BARAT</option>
+                    <option value='LAMPUNG SELATAN'>LAMPUNG SELATAN</option>
+                    <option value='LAMPUNG TENGAH'>LAMPUNG TENGAH</option>
+                    <option value='LAMPUNG TIMUR'>LAMPUNG TIMUR</option>
+                    <option value='LAMPUNG UTARA'>LAMPUNG UTARA</option>
+                    <option value='MESUJI'>MESUJI</option>
+                    <option value='PESAWARAN'>PESAWARAN</option>
+                    <option value='PESISIR BARAT'>PESISIR BARAT</option>
+                    <option value='PRINGSEWU'>PRINGSEWU</option>
+                    <option value='TANGGAMUS'>TANGGAMUS</option>
+                    <option value='TULANG BAWANG BARAT'>TULANG BAWANG BARAT</option>
+                    <option value='WAY KANAN'>WAY KANAN</option>
+                    <option value='BURU'>BURU</option>
+                    <option value='BURU SELATAN'>BURU SELATAN</option>
+                    <option value='KEPULAUAN ARU'>KEPULAUAN ARU</option>
+                    <option value='KOTA AMBON'>KOTA AMBON</option>
+                    <option value='KOTA TUAL'>KOTA TUAL</option>
+                    <option value='MALUKU BARAT DAYA'>MALUKU BARAT DAYA</option>
+                    <option value='MALUKU TENGAH'>MALUKU TENGAH</option>
+                    <option value='MALUKU TENGGARA'>MALUKU TENGGARA</option>
+                    <option value='SERAM BAGIAN BARAT'>SERAM BAGIAN BARAT</option>
+                    <option value='SERAM BAGIAN TIMUR'>SERAM BAGIAN TIMUR</option>
+                    <option value='HALMAHERA BARAT'>HALMAHERA BARAT</option>
+                    <option value='HALMAHERA SELATAN'>HALMAHERA SELATAN</option>
+                    <option value='HALMAHERA TENGAH'>HALMAHERA TENGAH</option>
+                    <option value='HALMAHERA TIMUR'>HALMAHERA TIMUR</option>
+                    <option value='HALMAHERA UTARA'>HALMAHERA UTARA</option>
+                    <option value='KEPULAUAN SULA'>KEPULAUAN SULA</option>
+                    <option value='KOTA TERNATE'>KOTA TERNATE</option>
+                    <option value='KOTA TIDORE KEPULAUAN'>KOTA TIDORE KEPULAUAN</option>
+                    <option value='PULAU MOROTAI'>PULAU MOROTAI</option>
+                    <option value='PULAU TALIABU'>PULAU TALIABU</option>
+                    <option value='BIMA'>BIMA</option>
+                    <option value='DOMPU'>DOMPU</option>
+                    <option value='KOTA BIMA'>KOTA BIMA</option>
+                    <option value='KOTA MATARAM'>KOTA MATARAM</option>
+                    <option value='LOMBOK BARAT'>LOMBOK BARAT</option>
+                    <option value='LOMBOK TENGAH'>LOMBOK TENGAH</option>
+                    <option value='LOMBOK TIMUR'>LOMBOK TIMUR</option>
+                    <option value='LOMBOK UTARA'>LOMBOK UTARA</option>
+                    <option value='SUMBAWA'>SUMBAWA</option>
+                    <option value='SUMBAWA BARAT'>SUMBAWA BARAT</option>
+                    <option value='ALOR'>ALOR</option>
+                    <option value='BELU'>BELU</option>
+                    <option value='ENDE'>ENDE</option>
+                    <option value='FLORES TIMUR'>FLORES TIMUR</option>
+                    <option value='KOTA KUPANG'>KOTA KUPANG</option>
+                    <option value='KUPANG'>KUPANG</option>
+                    <option value='LEMBATA'>LEMBATA</option>
+                    <option value='MALAKA'>MALAKA</option>
+                    <option value='MANGGARAI'>MANGGARAI</option>
+                    <option value='MANGGARAI BARAT'>MANGGARAI BARAT</option>
+                    <option value='MANGGARAI TIMUR'>MANGGARAI TIMUR</option>
+                    <option value='NAGEKEO'>NAGEKEO</option>
+                    <option value='NGADA'>NGADA</option>
+                    <option value='ROTE NDAO'>ROTE NDAO</option>
+                    <option value='SIKKA'>SIKKA</option>
+                    <option value='SUMBA BARAT'>SUMBA BARAT</option>
+                    <option value='SUMBA BARAT DAYA'>SUMBA BARAT DAYA</option>
+                    <option value='SUMBA TENGAH'>SUMBA TENGAH</option>
+                    <option value='SUMBA TIMUR'>SUMBA TIMUR</option>
+                    <option value='TIMOR TENGAH UTARA'>TIMOR TENGAH UTARA</option>
+                    <option value='ASMAT'>ASMAT</option>
+                    <option value='BIAK NUMFOR'>BIAK NUMFOR</option>
+                    <option value='BOVEN DIGOEL'>BOVEN DIGOEL</option>
+                    <option value='JAYAPURA'>JAYAPURA</option>
+                    <option value='JAYAWIJAYA'>JAYAWIJAYA</option>
+                    <option value='KEEROM'>KEEROM</option>
+                    <option value='KEPULAUAN YAPEN'>KEPULAUAN YAPEN</option>
+                    <option value='KOTA JAYAPURA'>KOTA JAYAPURA</option>
+                    <option value='MAMBERAMO RAYA'>MAMBERAMO RAYA</option>
+                    <option value='MAMBERAMO TENGAH'>MAMBERAMO TENGAH</option>
+                    <option value='MAPPI'>MAPPI</option>
+                    <option value='MERAUKE'>MERAUKE</option>
+                    <option value='MIMIKA'>MIMIKA</option>
+                    <option value='NABIRE'>NABIRE</option>
+                    <option value='PANIAI'>PANIAI</option>
+                    <option value='SARMI'>SARMI</option>
+                    <option value='SUPIORI'>SUPIORI</option>
+                    <option value='WAROPEN'>WAROPEN</option>
+                    <option value='YAHUKIMO'>YAHUKIMO</option>
+                    <option value='YALIMO'>YALIMO</option>
+                    <option value='KAIMANA'>KAIMANA</option>
+                    <option value='KOTA SORONG'>KOTA SORONG</option>
+                    <option value='MANOKWARI'>MANOKWARI</option>
+                    <option value='MANOKWARI SELATAN'>MANOKWARI SELATAN</option>
+                    <option value='MAYBRAT'>MAYBRAT</option>
+                    <option value='PEGUNUNGAN ARFAK'>PEGUNUNGAN ARFAK</option>
+                    <option value='RAJA AMPAT'>RAJA AMPAT</option>
+                    <option value='SORONG'>SORONG</option>
+                    <option value='SORONG SELATAN'>SORONG SELATAN</option>
+                    <option value='TAMBRAUW'>TAMBRAUW</option>
+                    <option value='TELUK BINTUNI'>TELUK BINTUNI</option>
+                    <option value='TELUK WONDAMA'>TELUK WONDAMA</option>
+                    <option value='BENGKALIS'>BENGKALIS</option>
+                    <option value='INDRAGIRI HILIR'>INDRAGIRI HILIR</option>
+                    <option value='INDRAGIRI HULU'>INDRAGIRI HULU</option>
+                    <option value='KAMPAR'>KAMPAR</option>
+                    <option value='KEPULAUAN MERANTI'>KEPULAUAN MERANTI</option>
+                    <option value='KOTA DUMAI'>KOTA DUMAI</option>
+                    <option value='KOTA PEKANBARU'>KOTA PEKANBARU</option>
+                    <option value='KUANTAN SINGINGI'>KUANTAN SINGINGI</option>
+                    <option value='PELALAWAN'>PELALAWAN</option>
+                    <option value='ROKAN HILIR'>ROKAN HILIR</option>
+                    <option value='ROKAN HULU'>ROKAN HULU</option>
+                    <option value='SIAK'>SIAK</option>
+                    <option value='MAJENE'>MAJENE</option>
+                    <option value='MAMASA'>MAMASA</option>
+                    <option value='MAMUJU'>MAMUJU</option>
+                    <option value='MAMUJU TENGAH'>MAMUJU TENGAH</option>
+                    <option value='MAMUJU UTARA'>MAMUJU UTARA</option>
+                    <option value='POLEWALI MANDAR'>POLEWALI MANDAR</option>
+                    <option value='BANTAENG'>BANTAENG</option>
+                    <option value='BARRU'>BARRU</option>
+                    <option value='BONE'>BONE</option>
+                    <option value='BULUKUMBA'>BULUKUMBA</option>
+                    <option value='ENREKANG'>ENREKANG</option>
+                    <option value='GOWA'>GOWA</option>
+                    <option value='JENEPONTO'>JENEPONTO</option>
+                    <option value='KEPULAUAN SELAYAR'>KEPULAUAN SELAYAR</option>
+                    <option value='KOTA PALOPO'>KOTA PALOPO</option>
+                    <option value='LUWU'>LUWU</option>
+                    <option value='LUWU TIMUR'>LUWU TIMUR</option>
+                    <option value='LUWU UTARA'>LUWU UTARA</option>
+                    <option value='MAROS'>MAROS</option>
+                    <option value='PINRANG'>PINRANG</option>
+                    <option value='SIDENRENG RAPPANG'>SIDENRENG RAPPANG</option>
+                    <option value='SINJAI'>SINJAI</option>
+                    <option value='SOPPENG'>SOPPENG</option>
+                    <option value='TAKALAR'>TAKALAR</option>
+                    <option value='TANA TORAJA'>TANA TORAJA</option>
+                    <option value='TORAJA UTARA'>TORAJA UTARA</option>
+                    <option value='WAJO'>WAJO</option>
+                    <option value='BANGGAI'>BANGGAI</option>
+                    <option value='BANGGAI KEPULAUAN'>BANGGAI KEPULAUAN</option>
+                    <option value='BANGGAI LAUT'>BANGGAI LAUT</option>
+                    <option value='BUOL'>BUOL</option>
+                    <option value='DONGGALA'>DONGGALA</option>
+                    <option value='KOTA PALU'>KOTA PALU</option>
+                    <option value='MOROWALI'>MOROWALI</option>
+                    <option value='MOROWALI UTARA'>MOROWALI UTARA</option>
+                    <option value='PARIGI MOUTONG'>PARIGI MOUTONG</option>
+                    <option value='POSO'>POSO</option>
+                    <option value='SIGI'>SIGI</option>
+                    <option value='BOMBANA'>BOMBANA</option>
+                    <option value='BUTON'>BUTON</option>
+                    <option value='BUTON SELATAN'>BUTON SELATAN</option>
+                    <option value='BUTON TENGAH'>BUTON TENGAH</option>
+                    <option value='BUTON UTARA'>BUTON UTARA</option>
+                    <option value='KOLAKA'>KOLAKA</option>
+                    <option value='KOLAKA TIMUR'>KOLAKA TIMUR</option>
+                    <option value='KOLAKA UTARA'>KOLAKA UTARA</option>
+                    <option value='KONAWE'>KONAWE</option>
+                    <option value='KONAWE KEPULAUAN'>KONAWE KEPULAUAN</option>
+                    <option value='KONAWE SELATAN'>KONAWE SELATAN</option>
+                    <option value='KONAWE UTARA'>KONAWE UTARA</option>
+                    <option value='KOTA KENDARI'>KOTA KENDARI</option>
+                    <option value='MUNA'>MUNA</option>
+                    <option value='MUNA BARAT'>MUNA BARAT</option>
+                    <option value='WAKATOBI'>WAKATOBI</option>
+                    <option value='BOLAANG MONGONDOW'>BOLAANG MONGONDOW</option>
+                    <option value='BOLAANG MONGONDOW SELATAN'>BOLAANG MONGONDOW SELATAN</option>
+                    <option value='BOLAANG MONGONDOW TIMUR'>BOLAANG MONGONDOW TIMUR</option>
+                    <option value='BOLAANG MONGONDOW UTARA'>BOLAANG MONGONDOW UTARA</option>
+                    <option value='KEPULAUAN SANGIHE'>KEPULAUAN SANGIHE</option>
+                    <option value='KEPULAUAN TALAUD'>KEPULAUAN TALAUD</option>
+                    <option value='KOTA BITUNG'>KOTA BITUNG</option>
+                    <option value='KOTA KOTAMOBAGU'>KOTA KOTAMOBAGU</option>
+                    <option value='KOTA MANADO'>KOTA MANADO</option>
+                    <option value='MINAHASA'>MINAHASA</option>
+                    <option value='MINAHASA SELATAN'>MINAHASA SELATAN</option>
+                    <option value='MINAHASA TENGGARA'>MINAHASA TENGGARA</option>
+                    <option value='MINAHASA UTARA'>MINAHASA UTARA</option>
+                    <option value='AGAM'>AGAM</option>
+                    <option value='DHARMASRAYA'>DHARMASRAYA</option>
+                    <option value='KEPULAUAN MENTAWAI'>KEPULAUAN MENTAWAI</option>
+                    <option value='KOTA BUKITTINGGI'>KOTA BUKITTINGGI</option>
+                    <option value='KOTA PADANG'>KOTA PADANG</option>
+                    <option value='KOTA PADANG PANJANG'>KOTA PADANG PANJANG</option>
+                    <option value='KOTA PARIAMAN'>KOTA PARIAMAN</option>
+                    <option value='KOTA PAYAKUMBUH'>KOTA PAYAKUMBUH</option>
+                    <option value='KOTA SOLOK'>KOTA SOLOK</option>
+                    <option value='LIMA PULUH KOTA'>LIMA PULUH KOTA</option>
+                    <option value='PADANG PARIAMAN'>PADANG PARIAMAN</option>
+                    <option value='PASAMAN'>PASAMAN</option>
+                    <option value='PASAMAN BARAT'>PASAMAN BARAT</option>
+                    <option value='PESISIR SELATAN'>PESISIR SELATAN</option>
+                    <option value='SIJUNJUNG'>SIJUNJUNG</option>
+                    <option value='SOLOK'>SOLOK</option>
+                    <option value='SOLOK SELATAN'>SOLOK SELATAN</option>
+                    <option value='TANAH DATAR'>TANAH DATAR</option>
+                    <option value='EMPAT LAWANG'>EMPAT LAWANG</option>
+                    <option value='KOTA PAGAR ALAM'>KOTA PAGAR ALAM</option>
+                    <option value='KOTA PALEMBANG'>KOTA PALEMBANG</option>
+                    <option value='KOTA PRABUMULIH'>KOTA PRABUMULIH</option>
+                    <option value='LAHAT'>LAHAT</option>
+                    <option value='MUARA ENIM'>MUARA ENIM</option>
+                    <option value='MUSI BANYUASIN'>MUSI BANYUASIN</option>
+                    <option value='MUSI RAWAS'>MUSI RAWAS</option>
+                    <option value='MUSI RAWAS UTARA'>MUSI RAWAS UTARA</option>
+                    <option value='OGAN ILIR'>OGAN ILIR</option>
+                    <option value='OGAN KOMERING ILIR'>OGAN KOMERING ILIR</option>
+                    <option value='OGAN KOMERING ULU'>OGAN KOMERING ULU</option>
+                    <option value='OGAN KOMERING ULU SELATAN'>OGAN KOMERING ULU SELATAN</option>
+                    <option value='OGAN KOMERING ULU TIMUR'>OGAN KOMERING ULU TIMUR</option>
+                    <option value='PENUKAL ABAB LEMATANG ILIR'>PENUKAL ABAB LEMATANG ILIR</option>
+                    <option value='ASAHAN'>ASAHAN</option>
+                    <option value='BATU BARA'>BATU BARA</option>
+                    <option value='DAIRI'>DAIRI</option>
+                    <option value='DELI SERDANG'>DELI SERDANG</option>
+                    <option value='HUMBANG HASUNDUTAN'>HUMBANG HASUNDUTAN</option>
+                    <option value='KARO'>KARO</option>
+                    <option value='KOTA BINJAI'>KOTA BINJAI</option>
+                    <option value='KOTA GUNUNGSITOLI'>KOTA GUNUNGSITOLI</option>
+                    <option value='KOTA MEDAN'>KOTA MEDAN</option>
+                    <option value='KOTA PADANGSIDIMPUAN'>KOTA PADANGSIDIMPUAN</option>
+                    <option value='KOTA PEMATANG SIANTAR'>KOTA PEMATANG SIANTAR</option>
+                    <option value='KOTA SIBOLGA'>KOTA SIBOLGA</option>
+                    <option value='KOTA TANJUNG BALAI'>KOTA TANJUNG BALAI</option>
+                    <option value='KOTA TEBING TINGGI'>KOTA TEBING TINGGI</option>
+                    <option value='LANGKAT'>LANGKAT</option>
+                    <option value='MANDAILING NATAL'>MANDAILING NATAL</option>
+                    <option value='NIAS'>NIAS</option>
+                    <option value='NIAS BARAT'>NIAS BARAT</option>
+                    <option value='NIAS SELATAN'>NIAS SELATAN</option>
+                    <option value='NIAS UTARA'>NIAS UTARA</option>
+                    <option value='PADANG LAWAS'>PADANG LAWAS</option>
+                    <option value='PADANG LAWAS UTARA'>PADANG LAWAS UTARA</option>
+                    <option value='PAKPAK BHARAT'>PAKPAK BHARAT</option>
+                    <option value='SAMOSIR'>SAMOSIR</option>
+                    <option value='SERDANG BEDAGAI'>SERDANG BEDAGAI</option>
+                    <option value='SIMALUNGUN'>SIMALUNGUN</option>
+                    <option value='TAPANULI SELATAN'>TAPANULI SELATAN</option>
+                    <option value='TAPANULI TENGAH'>TAPANULI TENGAH</option>
+                    <option value='TAPANULI UTARA'>TAPANULI UTARA</option>
+                    <option value='TOBA SAMOSIR'>TOBA SAMOSIR</option>
+
+
+
+
+                   
+                </select>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary ml-2">Cari</button>
+                </div>
+            </form>
+            
+            <div class="table-container">
+              <table class="table table-striped text-center mt-3">
+
+                <!-- <style>
+                  .table-container {
+                    max-height: 700px; /* Set the desired height for the scrollable area */
+                    overflow-y: scroll; /* Enable vertical scroll */
+                  }
+                  
+                  .table.table-striped.text-center {
+                    width: 100%;
+                    border-collapse: collapse;
+                  }
+                  
+                  .table.table-striped.text-center th,
+                  .table.table-striped.text-center td {
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                  }
+                  
+                  .table.table-striped.text-center th.bg-white {
+                    background-color: #fff;
+                  }
+                  
+                  .table.table-striped.text-center th.rounded-left-xl {
+                    border-radius: 5px 0 0 5px;
+                  }
+                  
+                  /* Add additional CSS styling as needed */
+                </style> -->
+
+                
+                <thead>
+                  <tr>
+                    <th class="font-weight-bold rounded-left-xl p-5" style="background-color: #292f3f; color: #fdff8a">
+                      No
+                    </th>
+                    <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Nama Ikan
+                    </th>
+                    <!-- <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Harga
+                    </th> -->
+                    <!-- <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Kebutuhan Pasar
+                    </th> -->
+                    <th class="font-weight-bold p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Status
+                    </th>
+                    <th class="font-weight-bold rounded-right-xl p-5" style="background-color: #292f3f; color: #fdff8a">
+                      Populer di Kota
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for row in table %}
+                  <tr>
+                    <td class="bg-white rounded-left-xl p-5">
+                      {{ ((page-1) * JUMLAH_PER_HALAMAN) + loop.index }}
+                    </td>
+                    <td class="bg-white p-5">{{ row['Jenis_Ikan']|safe }}</td>
+                    <td class="bg-white p-5">{{ row['Status']|safe }}</td>
+                    <td class="bg-white p-5">{{ row['KabKota']|safe }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+
+              <div class="d-flex justify-content-end">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        {% if page > 1 %}
+                        <a
+                          class="page-link"
+                          href="{{ url_for('tampil_halaman2', halaman2=page-1, search=search_query, kota_query=kota_query) }}"
+                          >Sebelumnya</a
+                        >
+                      </li>
+                      {% endif %}
+                      {% if table|length >= JUMLAH_PER_HALAMAN %}
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="{{ url_for('tampil_halaman2', halaman2=page+1, search=search_query, kota_query=kota_query) }}"
+                          >Berikutnya</a
+                          {% endif %}
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+            </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="table-ikan">
+        <div class="container">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up">
+              <h5>Yuk bantu kami isi survei dibawah ini</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col-6 col-md col-lg-2"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="index.html" class="component-categories d-block">
+                <div class="categories-image">
+                  <img
+                    src="{{url_for('static', filename='/img/price.png') }}"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+                <p class="categories-text">Harga Ikan di tempat anda</p>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md col-lg-2"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="index.html" class="component-categories d-block">
+                <div class="categories-image">
+                  <img
+                    src="{{url_for('static', filename='/img/pisciculture.png') }}"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+                <p class="categories-text">Produksi Ikan di tempat anda</p>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md col-lg-2"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <a
+                href="index.html
+              "
+                class="component-categories d-block"
+              >
+                <div class="categories-image">
+                  <img
+                    src="{{url_for('static', filename='/img/fish.png') }}"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+                <p class="categories-text">ikan yang paling anda sukai</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="pt-4 pb-2">2023 Copyright Panel. All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="/navbar-scroll.js"></script>
+  </body>
+</html>
